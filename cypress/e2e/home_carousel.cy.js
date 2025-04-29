@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('Homepage Carousel Functionality', () => {
   beforeEach(() => {
     cy.visit('https://ecommerce-playground.lambdatest.io/index.php?route=common/home');
