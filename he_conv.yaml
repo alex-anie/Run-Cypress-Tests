@@ -1,0 +1,51 @@
+version: "0.1"
+globalTimeout: 90
+testSuiteTimeout: 90
+testSuiteStep: 90
+runson: ${matrix.os}
+cypress: true
+concurrency: 1
+jobLabel:
+  - heJob
+pre:
+  - npm install cypress@10 --legacy-peer-deps
+  - npm install cypress@10.0.0 --legacy-peer-deps
+cacheKey: '{{ checksum "package.lock.json" }}'
+cacheDirectories:
+  - node_modules
+  - cypressCache
+env:
+  CYPRESS_CACHE_FOLDER: cypressCache
+  HYPEREXECUTE_CUSTOM_BUILD: Run Cypress Tests
+matrix:
+  browser:
+    - Chrome-latest
+    - Firefox-latest
+  test:
+    - cypress/e2e/display_visibility.cy.js
+    - cypress/e2e/home_carousel.cy.js
+    - cypress/e2e/mock_carousel.cy.js
+    - cypress/e2e/swiper-items.cy.js
+  os:
+    - win
+testSuites:
+  - npx cypress run --browser=$browser --headed --config video=false --spec $test
+cypressOps:
+  DedicatedProxy: false
+  Build: Run Cypress Tests
+  BuildTags: []
+  Tags: []
+  Network: false
+  GeoLocation: ""
+  ReporterConfigFile: base_reporter_config.json
+  ProjectAutoCreate: true
+uploadArtefacts: []
+project:
+  name: cypress_project
+  differentialUpload:
+    enabled: true
+    ttlHours: 60
+combineTasksInMatrixMode: true
+runtime:
+  language: node
+  version: 16.18.1
