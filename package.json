@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run --headless",
-    "fixture-server":"http-server cypress/fixtures -p 8080"
+    "e2e:chrome": "cypress run --browser chrome",
+    "fixture:server": "http-server cypress/fixtures -p 8080"
   },
   "keywords": [],
   "author": "Alex Anie",
@@ -12,5 +13,8 @@
   "description": "",
   "dependencies": {
     "cypress": "^14.3.2"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2"
   }
 }
