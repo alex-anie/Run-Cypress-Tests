@@ -10,6 +10,9 @@ module.exports = defineConfig({
     inlineAssets: true,
   },
   e2e: {
+    retries: 2,
+    viewportWidth: 1000,
+    viewportHeight: 660,
     setupNodeEvents(on, config) {
       // implement node event listeners here
       require('cypress-mochawesome-reporter/plugin')(on);
