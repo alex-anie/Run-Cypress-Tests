@@ -2,12 +2,12 @@
 
 describe('LambdaTest Playground - Product Carousel', () => {
     beforeEach(() => {
-      cy.visit('https://ecommerce-playground.lambdatest.io/') // adjust URL if needed
+      cy.visit('https://ecommerce-playground.lambdatest.io/')
     })
   
     it('performs product carousel checks', () => {
       // 1. Count swiper items and log
-      cy.get('.swiper-slide')
+      cy.get('.swiper-slide') 
         .then($items => {
           cy.log(`Number of swiper items: ${$items.length}`)
         })

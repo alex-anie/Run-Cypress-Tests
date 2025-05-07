@@ -2,8 +2,7 @@
 
 describe('Mocked Product Carousel Test', () => {
     beforeEach(() => {
-      /*cy.visit('http://127.0.0.1:5500/cypress/fixtures/product-carousel.html')*/ // This is intentionally commented
-      cy.visit('cypress/fixtures/product-carousel.html') // Serve fixtures using a local server
+      cy.visit('cypress/fixtures/product-carousel.html') 
     })
   
     it('checks swiper items, prices, image visibility, and product names', () => {
