@@ -2,7 +2,7 @@
 
 describe('Mocked Product Carousel Test', () => {
     beforeEach(() => {
-      cy.visit('cypress/fixtures/product-carousel.html') 
+      cy.visit(Cypress.env('base_url_dev')) 
     })
   
     it('checks swiper items, prices, image visibility, and product names', () => {
@@ -12,7 +12,7 @@ describe('Mocked Product Carousel Test', () => {
         .then($items => {
           cy.log(`Number of swiper items: ${$items.length}`)
         })
-  
+
       // 2. Prices should exist and contain $
       cy.get('.price-new')
         .each($price => {
